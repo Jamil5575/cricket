@@ -3,314 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Watch live cricket streaming, match updates, highlights, and expert analysis on CricketLiveStreamHub. Your go-to destination for all things cricket!">
-    <meta name="keywords" content="live cricket streaming, cricket match updates, IPL live score, cricket highlights, live sports streaming">
-    <meta name="author" content="CricketLiveStreamHub">
-    <title>CricketLiveStreamHub - Watch Live Cricket Matches Online</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
+    <title>Live Cricket Streaming & Scores - CricLivePro</title>
+    <meta name="description" content="Watch live cricket streaming and get real-time scores for all international matches. T20 World Cup, IPL, Ashes, and more!">
+    <meta name="keywords" content="live cricket streaming, cricket scores, T20 World Cup, IPL live, cricket match updates">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsEvent",
+        "name": "India vs Australia T20 Match",
+        "startDate": "2024-10-05T19:30",
+        "location": "Melbourne Cricket Ground",
+        "homeTeam": "India National Cricket Team",
+        "awayTeam": "Australia National Cricket Team"
+    }
+    </script>
+
     <style>
+        :root {
+            --primary-color: #0a1f3d;
+            --accent-color: #00ff88;
+            --text-color: #ffffff;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, var(--primary-color), #082032);
+            color: var(--text-color);
         }
-        .navbar {
-            background-color: #1e90ff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+            background: rgba(0,0,0,0.7);
         }
-        .navbar-brand {
-            color: #fff !important;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        .navbar-nav .nav-link {
-            color: #fff !important;
-            font-weight: 500;
-            margin-left: 20px;
-        }
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('cricket-bg.jpg') no-repeat center center/cover;
-            color: #fff;
-            padding: 150px 20px;
-            text-align: center;
-        }
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            animation: fadeIn 2s ease-in-out;
-        }
-        .hero-section p {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            animation: fadeIn 3s ease-in-out;
-        }
-        .btn-primary {
-            background-color: #ff6b6b;
-            border: none;
-            padding: 10px 30px;
-            font-size: 1.1rem;
-            animation: fadeIn 4s ease-in-out;
-        }
-        .btn-primary:hover {
-            background-color: #ff4757;
-        }
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #1e90ff;
-        }
-        .blog-post {
-            background: #fff;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .blog-post:hover {
-            transform: translateY(-10px);
-        }
-        .blog-post h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1e90ff;
-        }
-        .blog-post p {
-            font-size: 1rem;
-            color: #666;
-        }
-        .footer {
-            background-color: #1e90ff;
-            color: #fff;
-            text-align: center;
-            padding: 40px 0;
-            margin-top: 60px;
-        }
-        .footer a {
-            color: #fff;
+
+        .nav a {
+            color: var(--text-color);
             text-decoration: none;
-            margin: 0 10px;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
-        .footer a:hover {
-            color: #ff6b6b;
+
+        .nav a:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        .stream-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .responsive-iframe {
+            width: 100%;
+            height: 50vh;
+            border: none;
+            border-radius: 12px;
+            margin: 20px 0;
+            background: #000;
+        }
+
+        .score-ticker {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .live-badge {
+            background: #ff0000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .ad-slot {
+            background: #ffffff20;
+            margin: 1rem 0;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .responsive-iframe { height: 30vh; }
+            .nav { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
+    <!-- GDPR Consent Popup -->
+    <div id="consent-popup" class="hidden">
+        <p>We use cookies to personalize content and ads. <button id="accept-btn">Accept</button></p>
+    </div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">CricketLiveStreamHub</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#live">Live Streaming</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#updates">Match Updates</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#highlights">Highlights</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <nav class="nav">
+        <a href="/">Live Matches</a>
+        <a href="/schedule">Schedule</a>
+        <a href="/highlights">Highlights</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <script type="text/javascript">
-	atOptions = {
-		'key' : 'e4eb141792bd1df2dc0d5e9ff1935873',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/e4eb141792bd1df2dc0d5e9ff1935873/invoke.js"></script>
-        <div class="container">
-            <h1>Watch Live Cricket Matches Online</h1>
-            <img src ="https://github.com/Jamil5575/cricket/blob/main/OIP.jpg?raw=true">
-            <p>Your go-to destination for live streaming, match updates, and expert analysis.</p>
-            <a href="# <iframe src=https://cdn.crichdplays.ru/embed2.php?id=willow&q=Willow Cricket HD width=95% height=520 frameborder=0 scrolling=no border=0 allow=autoplay allowfullscreen=true marginheight=0 marginwidth=0 webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>" class="btn btn-primary">Watch Live Now</a>
-         <script type="text/javascript">
-	atOptions = {
-		'key' : 'e4eb141792bd1df2dc0d5e9ff1935873',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/e4eb141792bd1df2dc0d5e9ff1935873/invoke.js"></script>
-        </div>
-    </section>
+    <!-- Ad Header -->
+    <div class="ad-slot" style="height: 90px; width: 728px; margin: 0 auto;">
+        <!-- Ad content will be loaded here -->
+    </div>
 
-    <!-- Live Streaming Section -->
-    <script type="text/javascript">
-	atOptions = {
-		'key' : 'e4eb141792bd1df2dc0d5e9ff1935873',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/e4eb141792bd1df2dc0d5e9ff1935873/invoke.js"></script>
-    <section id="live" class="container my-5">
-        <h2 class="section-title">Live Streaming</h2>
-        <div class="embed-responsive embed-responsive-16by9">
-           <iframe src=https://cdn.crichdplays.ru/embed2.php?id=willow&q=Willow Cricket HD width=95% height=520 frameborder=0 scrolling=no border=0 allow=autoplay allowfullscreen=true marginheight=0 marginwidth=0 webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div>
-        <p class="text-center mt-3">Can't see the stream? <a href="#">Try alternative links</a>.</p>
-    </section>
+    <div class="stream-container">
+        <iframe src="https://livematchzone.com/channel/willow-cricket/#" 
+                class="responsive-iframe" 
+                allowfullscreen
+                onerror="showStreamError()"></iframe>
+    </div>
 
-    <!-- Match Updates Section -->
-    <section id="updates" class="container my-5">
-        <h2 class="section-title">Match Updates</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="blog-post">
-			<script type="text/javascript">
-	atOptions = {
-		'key' : 'e4eb141792bd1df2dc0d5e9ff1935873',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/e4eb141792bd1df2dc0d5e9ff1935873/invoke.js"></script>
-                    <h3>India vs Australia: Live Score</h3>
-                    <p>Stay tuned for ball-by-ball updates of the thrilling match between India and Australia.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="blog-post">
-                    <script type="text/javascript">
-	atOptions = {
-		'key' : 'e4eb141792bd1df2dc0d5e9ff1935873',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/e4eb141792bd1df2dc0d5e9ff1935873/invoke.js"></script>
-                    <h3>IPL 2023: Match Highlights</h3>
-                    <p>Catch the latest highlights from the Indian Premier League 2023 season.</p>
-                </div>
-            </div>
+    <div class="score-ticker">
+        <span class="live-badge">LIVE</span>
+       <iframe src="https://widget.crictimes.org/" style="width:100%;min-height: 450px;" frameborder="0" scrolling="yes"></iframe>
         </div>
-    </section>
+    </div>
 
-    <!-- Highlights Section -->
-    <section id="highlights" class="container my-5">
-	    <script type="text/javascript">
-	atOptions = {
-		'key' : 'e4eb141792bd1df2dc0d5e9ff1935873',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/e4eb141792bd1df2dc0d5e9ff1935873/invoke.js"></script>
-        <h2 class="section-title">Match Highlights</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="blog-post">
-                    <h4>India Wins T20 World Cup</h4>
-                    <p>Relive the moments of India's historic T20 World Cup victory.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="blog-post">
-                    <h4>Best Catches of 2023</h4>
-                    <p>Watch the top 10 catches from international cricket matches.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="blog-post">
-			<script type="text/javascript">
-	atOptions = {
-		'key' : 'e4eb141792bd1df2dc0d5e9ff1935873',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/e4eb141792bd1df2dc0d5e9ff1935873/invoke.js"></script>
-                    <h4>Top 6s in IPL 2023</h4>
-                    <p>Enjoy the biggest sixes from the IPL 2023 season.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Ad Slot -->
+    <div class="ad-slot" style="height: 250px; width: 300px; margin: 0 auto;">
+        <!-- Vertical ad content -->
+    </div>
 
-    <!-- Blog Section -->
-    <section id="blog" class="container my-5">
-        <h2 class="section-title">Latest Blog Posts</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="blog-post">
-                    <h3>How to Watch Live Cricket Online</h3>
-                    <p>A complete guide to streaming live cricket matches from anywhere in the world.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="blog-post">
-			<script type="text/javascript">
-	atOptions = {
-		'key' : 'e4eb141792bd1df2dc0d5e9ff1935873',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/e4eb141792bd1df2dc0d5e9ff1935873/invoke.js"></script>
-                    <h3>Top 5 Cricket Streaming Apps</h3>
-                    <p>Discover the best apps for live cricket streaming on your smartphone.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Social Sharing -->
+    <div class="social-share">
+        <button onclick="shareOnTwitter()">Share on Twitter</button>
+        <button onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 CricketLiveStreamHub. All rights reserved.</p>
-            <p>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </p>
-        </div>
-    </footer>
+    <!-- Notify Me Form -->
+    <div class="notify-me">
+        <input type="email" placeholder="Enter email for match alerts">
+        <button onclick="subscribe()">Notify Me</button>
+    </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simulated real-time updates
+        setInterval(() => {
+            fetchScores();
+        }, 5000);
+
+        function fetchScores() {
+            // WebSocket/AJAX integration point
+            document.getElementById('scoreboard').innerHTML = `
+                <div class="teams">IND vs AUS</div>
+                <div class="score">IND 195/5 (19.1 overs)</div>
+                <div class="batsman">Kohli 78* (44), Pant 12 (6)</div>
+            `;
+        }
+
+        function showStreamError() {
+            alert('Error loading stream. Please refresh or try another browser.');
+        }
+
+        // GDPR Consent Management
+        const consentPopup = document.getElementById('consent-popup');
+        document.getElementById('accept-btn').addEventListener('click', () => {
+            consentPopup.style.display = 'none';
+            loadAds();
+        });
+
+        function loadAds() {
+            // Ad loading logic here
+        }
+    </script>
 </body>
 </html>
